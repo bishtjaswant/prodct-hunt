@@ -1,0 +1,173 @@
+<!doctype html>
+      {% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+      <meta name="authon" content="jaswant singh bisht">
+
+    <title>product hunt</title>
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+    .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+    @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+    }
+    }
+ 
+.send-button{
+background: #54C7C3;
+width:100%;
+font-weight: 600;
+color:#fff;
+padding: 8px 25px;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.g-button{
+color: #fff !important;
+border: 1px solid #EA4335;
+background: #ea4335 !important;
+width:100%;
+font-weight: 600;
+color:#fff;
+padding: 8px 25px;
+}
+.my-input{
+box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+cursor: text;
+padding: 8px 10px;
+transition: border .1s linear;
+}
+.header-title{
+margin: 5rem 0;
+}
+h1{
+font-size: 31px;
+line-height: 40px;
+font-weight: 600;
+color:#4c5357;
+}
+h2{
+color: #5e8396;
+font-size: 21px;
+line-height: 32px;
+font-weight: 400;
+}
+.login-or {
+position: relative;
+color: #aaa;
+margin-top: 10px;
+margin-bottom: 10px;
+padding-top: 10px;
+padding-bottom: 10px;
+}
+.span-or {
+display: block;
+position: absolute;
+left: 50%;
+top: -2px;
+margin-left: -25px;
+background-color: #fff;
+width: 50px;
+text-align: center;
+}
+.hr-or {
+height: 1px;
+margin-top: 0px !important;
+margin-bottom: 0px !important;
+}
+@media screen and (max-width:480px){
+h1{
+font-size: 26px;
+}
+h2{
+font-size: 20px;
+}
+}
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.3/examples/album/album.css" rel="stylesheet">
+  </head>
+  <body>
+
+ 
+ <header>
+        <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home' %}">
+      
+<img src="{% static 'logo.png' %}" alt="logo" width="30px" height="30px" class="d-inline-block align-top img-responsive">
+          Product hunt</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav ml-auto">
+                   {% if user.is_authenticated %}
+                <a class="nav-item nav-link text-capitalize" href="#"> {{ user.get_username }} </a>
+                <a class="nav-item nav-link" href="{% url 'create' %}">Create product</a>
+                <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit() }">Logout</a>
+                <form id="logout" method="POST" action="{% url 'logout' %}">
+                          {% csrf_token %}
+                </form>
+                 {% else %}
+                <a class="nav-item nav-link" href="{% url 'signup' %}">Register</a>
+                <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                  {% endif %}
+                <!-- <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
+              </div>
+            </div>
+        </div>
+    </nav>
+    
+ </header>
+
+
+
+<!--   main  content-->
+
+<div class="container"> 
+
+    {% block content %}
+
+hello world
+
+{% endblock %}
+
+
+
+</div>
+
+
+
+
+
+
+<footer class="text-muted">
+<div class="container">
+  <p class="lead text-capitalize text-center"> thakur jaswant singh  &copy; {%  now "Y"  %} </p>
+</div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
+</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js"></script></body>
+</html>
+
+
+
